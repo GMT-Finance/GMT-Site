@@ -5,7 +5,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/FooterHome';
 import Cards from './components/Cards';
 import Stocks from './components/Stocks';
-
 function App() {
   return (
     <Router>
@@ -22,6 +21,7 @@ function App() {
             {/* Adicione mais rotas conforme necessário */}
           </Switch>
               <Cards />
+
           <Footer />
         </div>
       </div>
