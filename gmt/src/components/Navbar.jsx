@@ -15,10 +15,13 @@ const Navbar = () => {
       
       <ul className='hidden md:flex'>
         <li className='p-4 hover:text-[#BDA475]'>
-          <Link to="/Hero">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li className='p-4 hover:text-[#BDA475]'>
           <Link to="/stocks">Ações</Link>
+        </li>
+        <li className='p-4 hover:text-[#BDA475]'>
+          <Link to="/stocks">Empresa</Link>
         </li>
         <button className='bg-[#BDA475] w-[70px] rounded-md font-medium my-3 mx-auto py-1 text-[#000112] hover:bg-[#A89465]'>
           Entrar
@@ -36,6 +39,9 @@ const Navbar = () => {
         </li>
         <li className='p-4 border-b border-gray-600 hover:text-[#e9c684]'>
           <Link to="/stocks">Ações</Link>
+        </li>
+        <li className='p-4 border-b border-gray-600 hover:text-[#e9c684]'>
+          <Link to="/stocks">Sobre nós</Link>
         </li>
         <button className='bg-[#BDA475] w-[70px] rounded-md font-medium my-3 mx-auto py-1 text-[#000112] hover:bg-[#A89465]'>
           Entrar

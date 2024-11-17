@@ -17,7 +17,7 @@ function Stocks() {
       <div>
         <Overview symbol={mockCompanyDetails.ticker} price={300} change={30} changePercent={10.0} currency={"USD"}></Overview>
       </div>
-      <div className='row-span-2 xl:row-span-3'>
+      <div className='row-span-3 xl:row-span-3'>
         <Details details={mockCompanyDetails}/>
       </div>
     </div>

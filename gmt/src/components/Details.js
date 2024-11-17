@@ -2,15 +2,19 @@ import React from "react";
 import Card from "./Card";
 
 const Details = ({ details }) => {
-
   const detailsList = {
-    name: "Name",
-    country: "Country",
-    currency: "Currency",
+    name: "Nome",
+    country: "País",
+    currency: "Moeda",
     exchange: "Exchange",
-    ipo: "IPO Date",
-    marketCapitalization: "Market Capitalization",
-    finnhubIndustry: "Industry",
+    ipo: "Data de IPO",
+    marketCapitalization: "Valor de mercado",
+    finnhubIndustry: "Indústria",
+  };
+
+  const formatDate = (dateString) => {
+    const [year, month, day] = dateString.split("-");
+    return `${day}/${month}/${year}`;
   };
 
   const convertMillionToBillion = (number) => {
@@ -19,13 +23,15 @@ const Details = ({ details }) => {
 
   return (
     <Card>
-      <ul className="w-full h-full flex flex-col justify-between divide-y">
+      <ul className="w-full h-full flex flex-col justify-between divide-y text-white">
         {Object.keys(detailsList).map((item) => (
           <li key={item} className="flex-1 flex justify-between items-center">
             <span>{detailsList[item]}</span>
             <span>
               {item === "marketCapitalization"
                 ? `${convertMillionToBillion(details[item])}B`
+                : item === "ipo"
+                ? formatDate(details[item])
                 : details[item]}
             </span>
           </li>
@@ -36,3 +42,5 @@ const Details = ({ details }) => {
 };
 
 export default Details;
+
+
