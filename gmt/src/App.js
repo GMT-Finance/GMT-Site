@@ -1,14 +1,16 @@
-import React from 'react';
+import { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Footer from './components/FooterHome';
 import Cards from './components/Cards';
 import Stocks from './components/Stocks';
+import Info from './components/Info';
+import StockContext from "./context/StockContext";
 
 
 function App() {
-
+  const [stockSymbol, setStockSymbol] = useState("MSFT");
   return (
     
     <Router>
@@ -21,9 +23,14 @@ function App() {
             <Route exact path="/">
               <Hero />
             </Route>
-            <Route path="/stocks">
+             <Route path="/stocks">
+             <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
               <Stocks/>
-            </Route>
+      </StockContext.Provider>
+             </Route>
+             <Route path="/info">
+              <Info />
+             </Route>
           </Switch>
               <Cards />
 

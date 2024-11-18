@@ -20,7 +20,7 @@ const Cards = () => {
           <div className="text-center font-medium">
             <p className="py-2 border-b mx-8 mt-8">Meus ativos</p>
             <p className="py-2 border-b mx-8">Notificações</p>
-            <p className="py-2 border-b mx-8">Send up to 2 GB</p>
+            <p className="py-2 border-b mx-8">Acesso ilimitado</p>
           </div>
           <button className="bg-[#000112] text-[#BDA475] w-[200px] rounded-md font-medium my-6 mx-auto px-6 py-3">Assinar</button>
         </div>
