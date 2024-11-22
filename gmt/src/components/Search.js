@@ -34,7 +34,7 @@ const Search = () => {
       <input
         type="text"
         value={input}
-        className={`w-full px-4 py-2 focus:outline-none rounded-md bg-[#000112] text-white`}
+        className={`w-full px-4 py-2 focus:outline-none rounded-md bg-[#00011200] text-white`}
         placeholder="Procurar ação"
         onChange={(event) => setInput(event.target.value)}
         onKeyDown={(event) => {
@@ -50,9 +50,9 @@ const Search = () => {
       )}
       <button
         onClick={updateBestMatches}
-        className="h-8 w-8 bg-indigo-600 rounded-md flex justify-center items-center m-1 p-2 transition duration-300 hover:ring-2 ring-indigo-400"
+        className="h-8 w-8 bg-[#BDA475] rounded-md flex justify-center items-center m-1 p-2 transition duration-300 hover:ring-2 ring-[#000112]"
       >
-        <SearchIcon className="h-4 w-4 fill-gray-100" />
+        <SearchIcon className="h-4 w-4  fill-[#000112]" />
       </button>
       {input && bestMatches.length > 0 ? (
         <SearchResults results={bestMatches} />

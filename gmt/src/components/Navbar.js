@@ -21,7 +21,7 @@ const Navbar = () => {
           <Link to="/stocks">Ações</Link>
         </li>
         <li className='p-4 hover:text-[#BDA475]'>
-          <Link to="/info">Empresa</Link>
+          <Link to="/">Empresa</Link>
         </li>
         <button className='bg-[#BDA475] w-[70px] rounded-md font-medium my-3 mx-auto py-1 text-[#000112] hover:bg-[#A89465]'>
           Entrar

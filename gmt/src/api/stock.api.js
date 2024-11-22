@@ -1,4 +1,13 @@
 const basePath = "https://finnhub.io/api/v1";
+const apiKey = "csobmo1r01qt3r34952gcsobmo1r01qt3r349530";
+
+
+
+// Validação inicial da chave de API
+if (!apiKey) {
+  console.error("A chave de API não foi definida. Verifique o arquivo .env.");
+  throw new Error("Chave de API ausente.");
+}
 
 /**
  * Searches best stock matches based on a user's query
@@ -6,15 +15,20 @@ const basePath = "https://finnhub.io/api/v1";
  * @returns {Promise<Object[]>} Response array of best stock matches
  */
 export const searchSymbols = async (query) => {
-  const url = `${basePath}/search?q=${query}&token=${process.env.REACT_APP_API_KEY}`;
-  const response = await fetch(url);
+  try {
+    const url = `${basePath}/search?q=${query}&token=${apiKey}`;
+    const response = await fetch(url);
 
-  if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
-    throw new Error(message);
+    if (!response.ok) {
+      const message = `Erro ao buscar símbolos: ${response.status} (${response.statusText}). Endpoint: ${url}`;
+      throw new Error(message);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Erro em searchSymbols:", error.message);
+    throw error;
   }
-
-  return await response.json();
 };
 
 /**
@@ -23,15 +37,20 @@ export const searchSymbols = async (query) => {
  * @returns {Promise<Object>} Response object
  */
 export const fetchStockDetails = async (stockSymbol) => {
-  const url = `${basePath}/stock/profile2?symbol=${stockSymbol}&token=${process.env.REACT_APP_API_KEY}`;
-  const response = await fetch(url);
+  try {
+    const url = `${basePath}/stock/profile2?symbol=${stockSymbol}&token=${apiKey}`;
+    const response = await fetch(url);
 
-  if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
-    throw new Error(message);
+    if (!response.ok) {
+      const message = `Erro ao buscar detalhes da ação: ${response.status} (${response.statusText}). Endpoint: ${url}`;
+      throw new Error(message);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Erro em fetchStockDetails:", error.message);
+    throw error;
   }
-
-  return await response.json();
 };
 
 /**
@@ -40,15 +59,20 @@ export const fetchStockDetails = async (stockSymbol) => {
  * @returns {Promise<Object>} Response object
  */
 export const fetchQuote = async (stockSymbol) => {
-  const url = `${basePath}/quote?symbol=${stockSymbol}&token=${process.env.REACT_APP_API_KEY}`;
-  const response = await fetch(url);
+  try {
+    const url = `${basePath}/quote?symbol=${stockSymbol}&token=${apiKey}`;
+    const response = await fetch(url);
 
-  if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
-    throw new Error(message);
+    if (!response.ok) {
+      const message = `Erro ao buscar cotação: ${response.status} (${response.statusText}). Endpoint: ${url}`;
+      throw new Error(message);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Erro em fetchQuote:", error.message);
+    throw error;
   }
-
-  return await response.json();
 };
 
 /**
@@ -65,13 +89,18 @@ export const fetchHistoricalData = async (
   from,
   to
 ) => {
-  const url = `${basePath}/stock/candle?symbol=${stockSymbol}&resolution=${resolution}&from=${from}&to=${to}&token=${process.env.REACT_APP_API_KEY}`;
-  const response = await fetch(url);
+  try {
+    const url = `${basePath}/stock/candle?symbol=${stockSymbol}&resolution=${resolution}&from=${from}&to=${to}&token=${apiKey}`;
+    const response = await fetch(url);
 
-  if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
-    throw new Error(message);
+    if (!response.ok) {
+      const message = `Erro ao buscar dados históricos: ${response.status} (${response.statusText}). Endpoint: ${url}`;
+      throw new Error(message);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Erro em fetchHistoricalData:", error.message);
+    throw error;
   }
-
-  return await response.json();
 };

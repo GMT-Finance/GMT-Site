@@ -17,8 +17,6 @@ function App() {
       <div className='app'>
         <Navbar />
         <div className='content'>
-              
-    
           <Switch>
             <Route exact path="/">
               <Hero />
@@ -27,9 +25,6 @@ function App() {
              <StockContext.Provider value={{ stockSymbol, setStockSymbol }}>
               <Stocks/>
       </StockContext.Provider>
-             </Route>
-             <Route path="/info">
-              <Info />
              </Route>
           </Switch>
               <Cards />

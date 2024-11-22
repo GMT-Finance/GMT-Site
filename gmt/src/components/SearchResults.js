@@ -7,7 +7,7 @@ const SearchResults = ({ results }) => {
 
   return (
     <ul
-      className={`absolute top-12 border-2 w-full rounded-md h-64 overflow-y-scroll `}
+      className={`absolute top-12 border-2 w-full rounded-md h-64 overflow-y-scroll custom-scrollbar text-white bg-[#000112] `}
     >
       {results.map((item) => {
         return (
